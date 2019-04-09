@@ -12,6 +12,7 @@ import java.io.*;
 import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Scanner;
 
 public class UvaServiceProvider {
@@ -160,10 +161,11 @@ public class UvaServiceProvider {
                 JSONArray item = (JSONArray) subsArray.get(i);
 
                 Submission submission = new Submission(
-                        item.getInt(0),item.getInt(1),
+                        item.getInt(0),
+                        item.getInt(1),
                         "",
                         item.getInt(3),
-                        item.getInt(4),
+                        new Date((long)item.getInt(4)*1000),
                         LanguageUtils.getLanguageName(item.getInt(5)),
                         item.getInt(6)
                 );
